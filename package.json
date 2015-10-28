@@ -1,0 +1,18 @@
+{
+  "name": "segio",
+  "version": "1.0.0",
+  "description": "Segment api cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/*"
+  },
+  "bin" : { "segio" : "./bin/cli.js" },
+  "author": "Mick Thompson",
+  "license": "MIT",
+  "dependencies": {
+    "analytics-node": "^2.0.0",
+    "event-stream": "^3.3.2",
+    "minimist": "^1.2.0",
+    "tape": "^4.2.2"
+  }
+}
