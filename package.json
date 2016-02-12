@@ -1,12 +1,14 @@
 {
   "name": "segio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Segment api cli",
   "main": "index.js",
   "scripts": {
     "test": "tape tests/*"
   },
-  "bin" : { "segio" : "./bin/cli.js" },
+  "bin": {
+    "segio": "./bin/cli.js"
+  },
   "author": "Mick Thompson",
   "license": "MIT",
   "dependencies": {
