@@ -44,16 +44,23 @@ function Trigger() {
         }
 
         if (action === 'identify') {
-            analytics.identify(segmentData);
+            analytics.identify(segmentData, function(err, batch) {
+                if (err) throw err;
+                if (argv.debug) { console.error('identify batch finished', batch.length); }
+            });
         } else if (action === 'track') {
-            analytics.track(segmentData);
+            analytics.track(segmentData, function(err, batch) {
+                if (err) throw err;
+                if (argv.debug) { console.error('track batch finished', batch.length); }
+            });
         }
 
     }, function end () { //optional
         var context = this;
-        analytics.flush(function(err, batch){
+        analytics.flush(function(err, batch) {
             if (err) throw err;
-            context.emit('null')
+            if (argv.debug) { console.error('all events flushed', batch.length); }
+            context.emit('null');
         });
 
     });
@@ -63,7 +70,6 @@ process.stdin
     .pipe(es.split())
     .pipe(Trigger())
     .on('error', function(err){
-        console.log('error', err)
         console.error(err);
         process.exit(1);
     });

@@ -106,3 +106,9 @@ analytics.track({
   properties: {'prank': 'stapler in jello'},
 });
 ```
+
+#### debug
+
+To enable debugging `segio --debug`
+
+This will print when request to segment complete.
